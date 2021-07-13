@@ -11,7 +11,6 @@ var taskStatus = getDBValue("select task.task_status from task where task_id = '
 var customerSignature = getDBValue("select max(task_id) from task_attachment join attachment on attachment.attachment_id = task_attachment.attachment_id where attachment.attachment_type = ''SIGNATURE'' and attachment.attachment_description = ''Customer Signature'' and task_id = ''"+taskId+"''");
 var numberTaskNotes = getDBValue("select count(task_id) from task_text where text_line_code =''SOLUTION'' and task_id = ''"+taskId+"''");
 
-
 if(isNullOrEmptyString(customerSignature) && numberTaskNotes < 1)
 {
 	alert(getMessage(''CDebriefSummaryWorkflowInfo'',''INFORMATION''));
@@ -25,3 +24,5 @@ if(taskStatus != ''WORKSTOP'')
 	return false;
 }', 'Y', NULL, NULL, NULL, NULL, 'MOBILE_ONLY', NULL, 'EXTRACT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1000846', DATEADD(MILLISECOND,0, convert(datetime,'2021-07-13T15:38:51', 126)), '1000846', DATEADD(MILLISECOND,0, convert(datetime,'2020-09-25T17:35:32', 126)));
 GO
+
+--Test
